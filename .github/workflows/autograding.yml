@@ -5,22 +5,33 @@ on:
   pull_request:
     branches: [ "main", "master" ]
 
+permissions:
+  contents: read
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x'
-        
+
+    # Підставляємо офіційні тести з шаблону: зміни тестів у репозиторії студента ігноруються.
+    - name: Fetch official tests
+      run: |
+        BASE=https://raw.githubusercontent.com/vyaskevych/OOP-Lab11-Template/main/Lab11_Tests
+        curl -fsSL "$BASE/CompositionTests.cs" -o Lab11_Tests/CompositionTests.cs
+        curl -fsSL "$BASE/Lab11_Tests.csproj" -o Lab11_Tests/Lab11_Tests.csproj
+
     - name: Restore dependencies
-      run: dotnet restore
-      
+      run: dotnet restore Lab11_Tests/Lab11_Tests.csproj
+
     - name: Build
-      run: dotnet build --no-restore
-      
+      run: dotnet build Lab11_Tests/Lab11_Tests.csproj --no-restore
+
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test Lab11_Tests/Lab11_Tests.csproj --no-build --verbosity normal
