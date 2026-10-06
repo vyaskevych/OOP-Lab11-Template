@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lab11_StudentApp
+﻿namespace Lab11_StudentApp
 {
     public class Engine
     {
@@ -13,8 +7,9 @@ namespace Lab11_StudentApp
 
         public Engine(int power, string fuelType)
         {
-            // TODO: Завдання 1. Ініціалізуйте властивості об'єкта переданими параметрами
-            
+            // TODO: Завдання 1.
+            // Ініціалізуйте властивості Power та FuelType переданими параметрами.
+
         }
     }
 }
