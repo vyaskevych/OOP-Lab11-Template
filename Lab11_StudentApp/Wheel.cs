@@ -12,8 +12,8 @@ namespace Lab11_StudentApp
 
         public Wheel(int radius)
         {
-            // TODO: Завдання 4. Ініціалізуйте властивості
-
+            // TODO: Завдання 4. Ініціалізуйте радіус колеса
+            
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Lab11_StudentApp
 
         public Driver(string name, int experience)
         {
-            // TODO: Завдання 3. Ініціалізуйте властивості
-
+            // TODO: Завдання 3. Ініціалізуйте властивості водія
+            
         }
     }
 }
